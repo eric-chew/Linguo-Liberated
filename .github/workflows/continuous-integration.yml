@@ -1,0 +1,50 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test_suite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v2
+      - name: Set Up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Run Tests
+        run: |
+          cd src
+          python -m unittest discover tests/
+      - name: Check Type Hints
+        run: |
+          cd src
+          mypy . --namespace-packages
+          mypy modules/ --namespace-packages
+          mypy tests/ --namespace-packages
+      - name: Validate Styling
+        run: |
+          cd src
+          flake8 . modules/ tests/
+  deployment:
+    needs: test_suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fresh clone & repo install
+        uses: appleboy/ssh-action@master
+        with:
+          host: 50.17.205.228
+          username: github-actions
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            rm -rf Linguo-Liberated
+            git clone https://github.com/eric-chew/Linguo-Liberated.git
+            python3.8 -m venv /home/github-actions/Linguo-Liberated/venv
+            /home/github-actions/Linguo-Liberated/venv/bin/pip3.8 install -r /home/github-actions/Linguo-Liberated/requirements.txt
