@@ -46,6 +46,5 @@ jobs:
           script: |
             rm -rf Linguo-Liberated
             git clone https://github.com/eric-chew/Linguo-Liberated.git
-            apt-get install python3-venv
             python3.8 -m venv /home/github-actions/Linguo-Liberated/venv
             /home/github-actions/Linguo-Liberated/venv/bin/pip3.8 install -r /home/github-actions/Linguo-Liberated/requirements.txt
