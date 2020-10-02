@@ -51,9 +51,9 @@ Linguo Liberated currently supports two modes of searching:
 2. Uploading a query from a file
 ```
 
-An example file [example_input.txt](./src/example_file.txt) is provided in the `src/` directory
+An example file [example_input.txt](src/example_file.txt) is provided in the `src/` directory
 
-Application Flow Chart:
+Application Flow Chart:  
 ![Application Flow Chart](./docs/t2a3_flow.png "Application Flow Chart")
 
 ---
