@@ -2,6 +2,8 @@
 
 ---
 
+Original Repo at: [https://github.com/eric-chew/Linguo-Liberated](https://github.com/eric-chew/Linguo-Liberated)
+
 ### Description  
 
 Linguo Liberated is a word finding Python terminal application utilising the [Datamuse API](https://www.datamuse.com/api/).
