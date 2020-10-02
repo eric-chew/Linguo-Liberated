@@ -1,0 +1,6 @@
+__pycache__
+env
+.mypy_cache
+venv
+modules/__pycache__
+tests/__pycache__
