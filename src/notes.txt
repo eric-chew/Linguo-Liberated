@@ -1,2 +1,0 @@
-mypy modules/file_handler.py --namespace-packages
-python -m unittest discover -s tests
