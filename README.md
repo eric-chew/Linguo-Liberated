@@ -51,9 +51,10 @@ Linguo Liberated currently supports two modes of searching:
 2. Uploading a query from a file
 ```
 
-An example file [example_input.txt](src/example_file.txt) is provided in the `src/` directory
+An example file [example_input.txt](./src/example_input.txt) is provided in the `src/` directory
 
 Application Flow Chart:  
+
 ![Application Flow Chart](./docs/t2a3_flow.png "Application Flow Chart")
 
 ---
@@ -78,6 +79,6 @@ python3.8 src/main.py
 Note on file upload mode:
 The path supplied will be relative to the current working directory. So to use the `example_input.txt` when running from the root of the repo, you would type:
 ```
-src/example_file.txt
+src/example_input.txt
 ```
 when prompted
